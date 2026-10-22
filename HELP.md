@@ -1,17 +1,14 @@
 # Nearby Market API
 
-Backend-only REST API for nearby supplier products, customer carts, and supplier-managed orders. It uses Spring Boot, Spring Data JPA, Spring Security, and PostgreSQL by default. Set `PGHOST`, `PGPORT` (optional; defaults to `5432`), `PGDATABASE`, `PGUSER`, and `PGPASSWORD` for the database connection. SSL defaults to required; `PGSSLMODE` and `PGCHANNELBINDING` can override the defaults.
+Backend-only REST API for nearby supplier products, customer carts, and supplier-managed orders. It uses Spring Boot, Spring Data JPA, Spring Security, and PostgreSQL. H2 is used only for tests.
 
 ## Run
 
-Install JDK 21 and set the PostgreSQL environment variables, then run from this directory. To use local file-backed H2 instead, activate the `dev` profile:
+Install JDK 21 and configure the PostgreSQL connection with `spring.datasource.url`, `spring.datasource.username`, and `spring.datasource.password`, then run from this directory:
 
 ```powershell
 .\mvnw.cmd spring-boot:run
-.\mvnw.cmd spring-boot:run "-Dspring-boot.run.profiles=dev"
 ```
-
-H2 stores data under `backend/data/marketplace`. The development console is at `/h2-console` with JDBC URL `jdbc:h2:file:./data/marketplace`, username `sa`, and an empty password.
 
 ## Authentication
 
